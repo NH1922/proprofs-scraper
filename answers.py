@@ -48,7 +48,7 @@ def parse_page(page):
             solutions.append({
                 'Q No.':index,
                 'Question':cells[0].text.strip(),
-                'Answer':cells[0].text.strip()
+                'Answer':cells[1].text.strip()
             })
     return solutions
 

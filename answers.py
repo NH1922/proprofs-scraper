@@ -25,13 +25,13 @@ rows.forEach(function (row, index){
 '''
 
 
-def get_page():
+def get_page(url):
     print('Getting Page...')
     options = Options()
     options.headless = True
     #driver = webdriver.Chrome(r'D:\Salesforce Workspace\SalesforceScripts\webdriver\chromedriver.exe',options=options)
     driver = webdriver.Chrome('./webdriver/chromedriver.exe',options=options)
-    driver.get(QUIZ_URL)
+    driver.get(url)
     driver.execute_script(navigation_js)
     page =  driver.find_element_by_xpath("//body").get_attribute('outerHTML')
     driver.quit()
@@ -48,7 +48,7 @@ def parse_page(page):
             solutions.append({
                 'Q No.':index,
                 'Question':cells[0].text.strip(),
-                'Answer':cells[0].text.strip()
+                'Answer':cells[1].text.strip()
             })
     return solutions
 

@@ -19,15 +19,18 @@ def scrape_quiz(page):
     questions = soup.find_all('li', class_='ques_marg')
     question_texts = soup.find_all('div', class_='question-text')
     answers = soup.find_all('ul', class_='answers-list')
-
-    for i in range(len(question_texts)):
-        print('{}. {}'.format(i+1,question_texts[i].text))
-        options = answers[i].find_all('li')
-        for option in options :
-            option_no = option.find('div', class_='questonnopt').text.strip()
-            option_text = option.find('div', class_='opt_text').text.strip()
-            print(option_no + '' + option_text )
-        print('\n')
+    with open('questions.txt','w') as fp:
+        for i in range(len(question_texts)):
+            print('{}. {}'.format(i+1,question_texts[i].text))
+            fp.write('{}. {}'.format(i+1,question_texts[i].text) + '\n')
+            options = answers[i].find_all('li')
+            for option in options :
+                option_no = option.find('div', class_='questonnopt').text.strip()
+                option_text = option.find('div', class_='opt_text').text.strip()
+                print(option_no + '' + option_text )
+                fp.write(option_no + '' + option_text+'\n')
+            print('\n')
+            fp.write('\n')
 
 
 if __name__ == '__main__':

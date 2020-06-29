@@ -6,13 +6,6 @@ import answers
 from zipfile import ZipFile
 app = Flask(__name__)
 
-
-@app.route('/handle',methods=['POST'])
-def handle_form():
-    url = request.form['quizurl']
-    print(url)
-    return 'post complete'
-
 @app.route('/', methods=['GET', 'POST'])
 def get_file():
     # with open('questions.txt','w') as questionfile:
@@ -50,16 +43,6 @@ def get_file():
         # return send_file(file,mimetype='text/plain',attachment_filename='question.txt', as_attachment=True)
         return send_file(file, mimetype='application/zip', attachment_filename='Quiz.zip', as_attachment=True)
     return render_template('index.html')
-
-
-@app.route("/add")
-def add_manga():
-    global manhwas
-    manhwa_name = request.args.get('name')
-    chapters = request.args.get('chapters')
-    manhwas[manhwa_name] = chapters
-    print(manhwas)
-    return jsonify(manhwas)
 
 
 if __name__ == '__main__':

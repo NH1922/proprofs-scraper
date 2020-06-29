@@ -12,28 +12,72 @@
     <title>ProProfs Scraper</title>
 </head>
 <body>
-<div class="col-md-4 col-md-offset-4">
-
-    <form action="{{ url_for('get_file') }}" method="POST">
-        <div class="form-group">
-            <label for="quizurl">URL</label>
-            <input type="url" class="form-control" id="quizurl" aria-describedby="emailHelp" name="quizurl"
-                   placeholder="Enter url of the proprofquiz">
+<div class="container">
+    <div class="jumbotron">
+        <h1>Proprofs Scraper</h1>
+        <p>Save all proprof quizzes offline</p>
+    </div>
+    <!--    <div>-->
+    <!--        <div class="header-dark">-->
+    <!--            <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">-->
+    <!--                <div class="container"><a class="navbar-brand" style="font-size: 50px;" href="#">ProProf Scraper</a>-->
+    <!--                </div>-->
+    <!--            </nav>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div></div>
+    <form method="post" style="padding: 20px;">
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"><input class="form-control" type="url" name="quizurl"
+                                         placeholder="Enter url of proprofs quiz"></div>
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-block center-block" type="submit">Download</button>
+            </div>
+            <div class="col-md-3"></div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    e
+    <div></div>
+    <div class="footer-dark" style="width: 100%;">
+        <!-- Footer -->
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://github.com/NH1922> Someone terrible at UIs">A terrible UI dev</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
 </div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
+<!-- Footer -->
+</div>
+<!--<body>-->
+<!--<div class=" col-md-4 col-md-offset-4">-->
+<!--    <form action="{{ url_for('get_file') }}" method="POST" class="col-lg-6 offset-lg-3 ">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <input type="url" placeholder="Example input" name="quizurl">-->
+<!--            <span class="input-group-btn">-->
+<!--       <button class="btn btn-primary">Download</button>-->
+<!--     </span>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--    e-->
+<!--</div>-->
+<!--&lt;!&ndash; Optional JavaScript &ndash;&gt;-->
+<!--&lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"-->
+<!--        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
 </html>

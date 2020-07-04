@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import os
 
 BASE_URL = 'https://www.proprofs.com/quiz-school/story.php?title=mtg1njq3oa7yte'
 ANSWER_URL = 'https://www.proprofs.com/quiz-school/cardshow.php?title=platform-developer-1-pd1&q=1'

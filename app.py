@@ -24,13 +24,13 @@ def get_file():
         # Get questions
         page = questions.get_quiz(url)
         if page != 'error':
-            questions.scrape_quiz(page)
+            question_list = questions.scrape_quiz(page)
         else:
             return 'Invalid URL'
 
         # Get answers
         page = answers.get_page(url)
-        solutions = answers.parse_page(page)
+        solutions = answers.parse_page(page,question_list)
         answers.write_to_csv(solutions)
 
 
@@ -47,4 +47,4 @@ def get_file():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

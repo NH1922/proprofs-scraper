@@ -44,7 +44,7 @@ def get_page(url):
     driver.quit()
     return page
 
-def parse_page(page):
+def parse_page(page,question_list):
     print('Parsing the page...')
     solutions = []
     soup = BeautifulSoup(page, 'html.parser')
@@ -52,11 +52,16 @@ def parse_page(page):
     for index,row in enumerate(soup.find_all('tr', id='row')):
         cells = row.find_all('td')
         if len(cells) > 0:
-            solutions.append({
-                'Q No.':index,
+            try:
+                print(question_list.index(cells[0].text.strip()))
+                solutions.append({
+                'Q No.': question_list.index(cells[0].text.strip())+1,
                 'Question':cells[0].text.strip(),
                 'Answer':cells[1].text.strip()
             })
+            except ValueError:
+                print('item not present')
+
     return solutions
 
 
@@ -68,9 +73,9 @@ def write_to_csv(solutions):
 
 
 if __name__ == '__main__':
-    page = get_page()
+    page = get_page(QUIZ_URL)
     solutions = parse_page(page)
-    write_to_csv(solutions)
+    write_to_csv()
 
 
 

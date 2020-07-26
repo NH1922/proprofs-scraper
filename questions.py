@@ -16,12 +16,15 @@ def get_quiz(url):
 
 def scrape_quiz(page):
     soup = BeautifulSoup(page, 'html.parser')
+    question_list = []
     questions_list = soup.find('ul', class_='questions-list')
     questions = soup.find_all('li', class_='ques_marg')
     question_texts = soup.find_all('div', class_='question-text')
     answers = soup.find_all('ul', class_='answers-list')
+    question_list = []
     with open('questions.txt','w') as fp:
         for i in range(len(question_texts)):
+            question_list.append(question_texts[i].text.strip())
             print('{}. {}'.format(i+1,question_texts[i].text))
             fp.write('{}. {}'.format(i+1,question_texts[i].text) + '\n')
             options = answers[i].find_all('li')

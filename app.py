@@ -20,6 +20,8 @@ def get_file():
 
     if request.method == 'POST':
         url = flask.request.values.get('quizurl')
+        title = url.split('?title=')[1]
+        output_file_name = 'Quiz_'+title+'.zip'
         print(url)
         # Get questions
         question_list = []
@@ -35,17 +37,17 @@ def get_file():
         answers.write_to_csv(solutions)
 
 
-        with ZipFile('Quiz.zip','w') as zip:
+        with ZipFile(output_file_name,'w') as zip:
             zip.write('questions.txt')
             zip.write('Answers.csv')
-        file = open('Quiz.zip', 'rb')
+        file = open(output_file_name, 'rb')
         file.seek(0)
         # file = open('questions.txt','rb')
         # file.seek(0)
         # return send_file(file,mimetype='text/plain',attachment_filename='question.txt', as_attachment=True)
-        return send_file(file, mimetype='application/zip', attachment_filename='Quiz.zip', as_attachment=True)
+        return send_file(file, mimetype='application/zip', attachment_filename=output_file_name, as_attachment=True)
     return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)

@@ -55,7 +55,7 @@ def parse_page(page,question_list):
             try:
                 print(question_list.index(cells[0].text.strip()))
                 solutions.append({
-                'Q No.': question_list.index(cells[0].text.strip())+1,
+                    'Q No.': question_list.index(cells[0].text.strip())+1,
                 'Question':cells[0].text.strip(),
                 'Answer':cells[1].text.strip()
             })
@@ -75,7 +75,7 @@ def write_to_csv(solutions):
 if __name__ == '__main__':
     page = get_page(QUIZ_URL)
     solutions = parse_page(page)
-    write_to_csv()
+    write_to_csv(solutions)
 
 
 

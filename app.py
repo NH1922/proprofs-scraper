@@ -22,6 +22,7 @@ def get_file():
         url = flask.request.values.get('quizurl')
         print(url)
         # Get questions
+        question_list = []
         page = questions.get_quiz(url)
         if page != 'error':
             question_list = questions.scrape_quiz(page)
@@ -47,4 +48,4 @@ def get_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

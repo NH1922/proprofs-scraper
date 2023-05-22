@@ -1,5 +1,5 @@
 selenium==3.141.0
 Flask==1.0.2
-requests==2.20.0
+requests==2.31.0
 beautifulsoup4==4.9.1
 gunicorn==19.9.0
